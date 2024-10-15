@@ -1,0 +1,19 @@
+<%= form_with model: @article do |form| %>
+  <div class="mt-2">
+    <label for="article_title"> <%= form.label :title %></label><br>
+    <input class="border border-gray-300 rounded-md p-2 w-full" id="article_title" name="article[title]" type="text" value="<%= @article.title %>">
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <p class="text-red-500"><%= message %></p>
+    <% end %>
+  </div>
+  <div>
+    <label for="article_body"> <%= form.label :body %></label><br>
+    <textarea class="border border-gray-300 rounded-md p-2 w-full" id="article_body" name="article[body]"><%= @article.body %></textarea>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <p class="text-red-500"><%= message %></p>
+    <% end %>
+  </div>
+  <button class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium py-1 px-2 rounded mt-2" type="submit">
+    <%= form.submit %>
+  </button>
+<% end %>
