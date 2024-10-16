@@ -12,9 +12,9 @@ module Visible
       where(status: "public").count
     end
 
-    # def comment_count
-    #   where(status: "public").joins(:comments).count
-    # end
+    def comment_count
+      where(comments: { status: "public" }).count
+    end
   end
 
 
