@@ -1,10 +1,15 @@
-<div class="mt-5">
-  <div class="mt-2 flex items-center">
-    <p class="text-sm font-semibold">Commenter:</p>
-    <p> <%= comment.commenter %></p>
+<% unless comment.archived? %>
+  <div class="mt-5">
+    <div class="mt-2 flex items-center">
+      <p class="text-sm font-semibold">Commenter:</p>
+      <p> <%= comment.commenter %></p>
+    </div>
+    <div class=" flex items-center">
+      <p class="text-sm font-semibold">Comment:</p>
+      <p><%= comment.body %></p>
+    </div>
+    <button class="bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-1 px-2 rounded">
+      <%= link_to "Destroy comment",[comment.article, comment], data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </button
   </div>
-  <div class=" flex items-center">
-    <p class="text-sm font-semibold">Comment:</p>
-    <p><%= comment.body %></p>
-  </div>
-</div>
+  <% end %>

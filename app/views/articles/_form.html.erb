@@ -12,6 +12,8 @@
     <% @article.errors.full_messages_for(:body).each do |message| %>
       <p class="text-red-500"><%= message %></p>
     <% end %>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
   </div>
   <button class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium py-1 px-2 rounded mt-2" type="submit">
     <%= form.submit %>
