@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    ## This is a hack to get the title of the article
+    @article_title = @article.title
   end
 
   # The new action instantiates a new article, but does not save it. This article will be used in the view when building the form.
